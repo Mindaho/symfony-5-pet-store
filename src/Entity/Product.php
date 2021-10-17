@@ -43,7 +43,7 @@ class Product
      *
      * @Assert\NotBlank(message="Please provide image address")
      * @Assert\Length(
-     *     min=20,
+     *     min=4,
      *     max=255,
      *     minMessage="Name length must be at least {{ limit }} characters long",
      *     maxMessage="Name length must not go above {{ limit }} characters",
@@ -51,7 +51,12 @@ class Product
      */
     private string $image;
 
-    private int $price;
+    /**
+     * @ORM\Column(type="float")
+     *
+     * @Assert\Type(type="float", message="Price must be a decimal number")
+     */
+    private float $price = 0;
 
     /**
      * @OneToOne(targetEntity="Stock")
@@ -88,14 +93,26 @@ class Product
         return $this;
     }
 
-    public function getStock(): ?Stock
+    public function getStock(): Stock
     {
         return $this->stock;
     }
 
-    public function setStock(?Stock $stock): self
+    public function setStock(Stock $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

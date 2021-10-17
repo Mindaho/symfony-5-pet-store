@@ -13,15 +13,11 @@ trait EntityDateTrait
 {
     /**
      * @ORM\Column(type="datetime")
-     *
-     * @Assert\DateTime()
      */
     private DateTimeInterface $dateCreated;
 
     /**
-     * @ORM\Column(type="datetime")
-     *
-     * @Assert\DateTime()
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private ?DateTimeInterface $dateUpdated = null;
 

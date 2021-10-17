@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Make Reservation{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 col-sm-8">
+            <h3 class="mb-3">Make Reservation</h3>
+
+            {{ form_start(form) }}
+            {{ form_row(form.reservationDate) }}
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

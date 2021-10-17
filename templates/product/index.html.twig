@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="mt-3">
+        <div class="d-flex justify-content-between">
+            <h3 class="mb-3">Product</h3>
+            {% if is_granted(constant('App\\Constant\\UserConst::ROLE_ADMIN')) -%}
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-success rounded text-white" href={{ path("product_create") }}>+</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row row-cols-4">
+        {% for product in products %}
+            <div class="col">
+                {% include 'product/product.html.twig' %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

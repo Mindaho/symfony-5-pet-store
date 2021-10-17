@@ -18,6 +18,5 @@ class IndexController extends AbstractController
         //$user = $this->getUser();
 
         return $this->render('index/index.html.twig');
-
     }
 }

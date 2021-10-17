@@ -21,8 +21,6 @@ class Order
     public const STATUS_CANCELED = 'canceled';
     public const STATUS_COMPLETED = 'completed';
 
-    public const PRICE_DECIMAL = 100;
-
     public const STATUS_OPTIONS = [
         self::STATUS_NEW,
         self::STATUS_CANCELED,

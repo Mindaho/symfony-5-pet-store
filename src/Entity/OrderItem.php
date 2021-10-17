@@ -36,6 +36,11 @@ class OrderItem
      */
     private Order $order;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $price = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +66,18 @@ class OrderItem
     public function setOrder(?Order $order): self
     {
         $this->order = $order;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
